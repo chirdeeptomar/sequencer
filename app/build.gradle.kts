@@ -17,12 +17,10 @@ repositories {
 
 dependencies {
 
-    implementation("org.apache.camel:camel-core:4.13.0")
-    implementation("org.apache.camel:camel-nats:4.13.0")
-    implementation("io.nats:jnats:2.14.0")
-    implementation("org.apache.camel:camel-support:4.13.0")
-// https://mvnrepository.com/artifact/com.google.guava/guava
-implementation("com.google.guava:guava:33.4.8-jre")
+    implementation(libs.camel.core)
+    implementation(libs.camel.nats)
+    implementation(libs.camel.support)
+    implementation(libs.guava)
 
     // Use JUnit Jupiter for testing.
     testImplementation(libs.junit.jupiter)
