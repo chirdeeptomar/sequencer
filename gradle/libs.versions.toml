@@ -11,4 +11,5 @@ guava = { module = "com.google.guava:guava", version.ref = "guava" }
 camel-core = { module = "org.apache.camel:camel-core", version.ref = "camel" }
 camel-nats = { module = "org.apache.camel:camel-nats", version.ref = "camel" }
 camel-support = { module = "org.apache.camel:camel-support", version.ref = "camel" }
+camel-main = { module = "org.apache.camel:camel-main", version.ref = "camel" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit-jupiter" }

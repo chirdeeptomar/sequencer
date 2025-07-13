@@ -19,6 +19,7 @@ dependencies {
 
     implementation(libs.camel.core)
     implementation(libs.camel.nats)
+    implementation(libs.camel.main)
     implementation(libs.camel.support)
     implementation(libs.guava)
 

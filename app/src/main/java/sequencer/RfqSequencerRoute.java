@@ -57,7 +57,7 @@ public class RfqSequencerRoute extends RouteBuilder {
                         } else {
                             System.out.println("Unique message detected: " + messageId);
                             // Store the unique message in the KeyValue store
-                            kv.put(messageId, body.getBytes(StandardCharsets.UTF_8));
+                            kv.put(messageId, "");
                             // Unique message - continue
                             exchange.getIn().setHeader("isUnique", true);
                         }

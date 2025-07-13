@@ -3,34 +3,22 @@
  */
 package sequencer;
 
-import java.io.IOException;
-
-import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.camel.main.Main;
 
 public class App {
     public void setupSequencer() {
-        try (DefaultCamelContext camelContext = new DefaultCamelContext()) {
-            try {
-                camelContext.addRoutes(new RfqSequencerRoute());
-                camelContext.start();
-                System.out.println("Sequencer started successfully.");
-            } catch (Exception e) {
-                System.err.println("Failed to start sequencer: " + e.getMessage());
-                e.printStackTrace();
-            }
-            // Keep the application running to allow Camel routes to process messages
-            try {
-                Thread.sleep(1000000); // Sleep for 10 seconds
-            } catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                System.err.println("Main thread interrupted: " + e.getMessage());
-            }
-            camelContext.stop();
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
+        Main main = new Main();
+        try {
+            System.out.println("Started RFQ Sequencer.");
+            main.setAppName("RFQ Sequencer");
+            main.configure().addRoutesBuilder(new RfqSequencerRoute());
+            main.run();
+            System.err.println("Stopped RFQ Sequencer.");
+        } catch (Exception e) {
+            System.err.println("Error starting RFQ Sequencer: " + e.getMessage());
+            main.stop();
             e.printStackTrace();
         }
-        System.out.println("Sequencer stopped.");
     }
 
     public static void main(String[] args) {
